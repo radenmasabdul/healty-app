@@ -135,7 +135,7 @@ export default function LoginPage() {
         </Card>
 
         <p className="mt-8 text-center text-xs text-slate-500">
-          © 2025 WIT App By Abdul Rahman Alhafizh. All rights reserved.
+          © 2026 Healty App By Abdul Rahman Alhafizh. All rights reserved.
         </p>
       </div>
     </main>
