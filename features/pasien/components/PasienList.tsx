@@ -3,6 +3,7 @@
 import { usePasien } from "../hooks/usePasien";
 import GlobalToolbar from "@/components/global/GlobalToolbar";
 import GlobalDataTable from "@/components/global/GlobalDataTable";
+import PasienModal from "./PasienModal";
 
 export default function PasienList() {
   const {
@@ -33,6 +34,8 @@ export default function PasienList() {
             onSearch={({ keyword }) => handleSearch({ keyword })}
           />
         </div>
+
+        <PasienModal />
       </div>
 
       <GlobalDataTable

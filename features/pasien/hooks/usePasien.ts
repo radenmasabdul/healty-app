@@ -3,7 +3,19 @@
 import { useState, useEffect, useCallback } from "react";
 import { usePasienStore } from "../stores/pasienStore";
 import { pasienService } from "../services/pasien.api";
-import { PasienSchema, PasienSchemaUpdate } from "../schemas/pasien.schema";
+import { pasienSchema, PasienSchema, PasienSchemaUpdate } from "../schemas/pasien.schema";
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useAlertStore } from "@/store/useAlertStore";
+
+interface NewPatient {
+  name: string;
+  nik: string;
+  diagnosis: string;
+  admissionDate: string;
+  doctor: string;
+  room: string;
+};
 
 export function usePasien() {
   const {
@@ -16,8 +28,11 @@ export function usePasien() {
     setLoading,
   } = usePasienStore();
 
+  const { setAlert } = useAlertStore();
+
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [keyword, setKeyword] = useState<string>("");
+  const [openModal, setOpenModal] = useState<boolean>(false);
   const limit = 10;
 
   const fetchPatients = useCallback(async () => {
@@ -25,7 +40,6 @@ export function usePasien() {
       setLoading(true);
       const data = await pasienService.fetchPatients();
       setPatients(data);
-      console.log('data', data)
     } catch (error) {
       console.error("Failed to fetch patients:", error);
     } finally {
@@ -65,14 +79,37 @@ export function usePasien() {
     setCurrentPage(page);
   };
 
+  const newUserInitial: NewPatient = {
+    name: "",
+    nik: "",
+    diagnosis: "",
+    admissionDate: "",
+    doctor: "",
+    room: "",
+  };
+
+  const saveNewForm = useForm<PasienSchema>({
+    resolver: zodResolver(pasienSchema),
+    defaultValues: newUserInitial,
+  });
+
+   const handleResetForm = () => {
+    saveNewForm.reset();
+  };
+
   const handleCreate = async (payload: PasienSchema) => {
     try {
       setLoading(true);
       const newPatient = await pasienService.createPatient(payload);
+      
       addPatient(newPatient);
+      setAlert("Patient created successfully", "success");
+
+      handleResetForm();
+      setOpenModal(false);
     } catch (error) {
       console.error("Failed to create patient:", error);
-      throw error;
+      setAlert("Invalid", "error");
     } finally {
       setLoading(false);
     }
@@ -110,10 +147,14 @@ export function usePasien() {
     totalPages,
     currentPage,
     keyword,
+    openModal,
+    setOpenModal,
     loadingFetch: loading,
     handleSearch,
     handlePageChange,
     handleCreate,
+    saveNewForm,
+    handleResetForm,
     handleUpdate,
     handleDelete,
   };
