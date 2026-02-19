@@ -1,36 +1,118 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+#💚 Healty App – Modern Health Application
 
-## Getting Started
+<p align="center">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" width="50" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" width="50" />
+  <img src="https://raw.githubusercontent.com/radenmasabdul/logo/refs/heads/main/tailwindcss.svg" width="50" />
+  <img src="https://raw.githubusercontent.com/pmndrs/zustand/main/examples/demo/public/favicon.ico" width="50" />
+</p>
 
-First, run the development server:
+#
+This application is a frontend implementation for the needs of **Technical Test** Frontend Developers at **PT Data Integrasi Inovasi**.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🚀 Tech Stack
+
+- **Next.js 16** – React framework with App Router & SSR support
+- **React 19** – UI library
+- **TypeScript** – Static type checking
+- **Tailwind CSS 4** – Utility-first CSS framework
+- **shadcn/ui** – Reusable & accessible UI components
+- **Radix UI** – Accessible component primitives
+- **Zustand** – Lightweight state management
+- **React Hook Form** – Performant form handling
+- **Zod** – Schema validation
+- **Lucide React** – Icon library
+
+## 📦 Installation
+
+```
+# Clone the repository
+git clone https://github.com/radenmasabdul/healty-app.git
+cd healty-app
+
+# Install dependencies
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Development
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+# Start development server
+npm run dev
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Build for production
+npm run build
 
-## Learn More
+# Run production server
+npm run start
 
-To learn more about Next.js, take a look at the following resources:
+# Run linting
+npm run lint
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📁 Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+.
+├── .next/              # Build output & cache Next.js
+├── app/                # Next.js App Router
+│   ├── (auth)/         # Auth routes (grouped)
+│   ├── (dashboard)/    # Dashboard pages
+│   ├── favicon.ico     # Application favicon
+│   ├── global.css      # Global CSS
+│   ├── layout.tsx      # Root layout
+│   └── page.tsx        # Home page
+├── components/         # Reusable UI components
+│   ├── global/         # Reusable component global
+│   ├── ui/             # Shadcn/ui components
+│   └── layout/         # Navbar, sidebar, etc
+├── features/           # Feature-based business logic
+│   ├── auth/           # Authentication feature logic
+│   ├── dashboard/      # Dashboard feature logic
+│   ├── pasien/         # Pasien feature logic
+├── hooks/              # Custom React hooks
+├── lib/                # Utilities & helpers
+├── node_modules        # Installed dependencies
+├── public/             # Static assets
+├── store/              # Zustand state management
+├── .gitignore          # Git ignored files
+├── components.json     # Shadcn/ui configuration
+├── eslint.config.mjs   # ESLint configuration
+├── next-env.d.ts       # Next.js TypeScript types
+├── next.config.ts      # Next.js config
+├── package-lock.json   # pm lockfile
+├── package.json        # Project metadata & scripts
+├── postcss.config.mjs  # PostCSS configuration
+├── README.md           # Project documentation
+├── tsconfig.json       # TypeScript configuration
 
-## Deploy on Vercel
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🎯 Features
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Built with **Next.js 16 (App Router)** and **React 19**
+- Type-safe development using **TypeScript**
+- Modern & responsive UI with **Tailwind CSS**
+- Reusable components powered by **shadcn/ui** and **Radix UI**
+- Global state management using **Zustand**
+- Form handling & validation with **React Hook Form** and **Zod**
+- Icon system using **Lucide React**
+- Linting setup with **ESLint** for code quality
+
+## 🔧 Configuration
+
+The project includes:
+- TypeScript configuration (`tsconfig.json`)
+- ESLint configuration (`eslint.config.mjs`)
+- Next.js configuration (`next.config.ts`)
+- Tailwind CSS configuration (`tailwind.config.ts`)
+- PostCSS configuration (`postcss.config.mjs`)
+- shadcn/ui components configuration (`components.json`)
+
+## 📱 Browser Support
+
+This application supports all modern browsers that support **ES2015+**.
+
+## 📄 License
+
+This project is **private** and not licensed for public use.
